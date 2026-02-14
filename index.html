@@ -280,6 +280,65 @@
             <img src="instagram.jpg" class="insta-icon">
         </a>
     </div>
+    <!-- COMPATIBILITY QUIZ -->
+<div class="card">
+    <h2>Chhota sa compatibility quiz 💭</h2>
+    <p>Guess karke dekho, tum mujhe kitna jaanti ho.</p>
+
+    <form id="quizForm">
+
+        <p>1. Mera favourite colour?</p>
+        <select name="q1">
+            <option value="">Select</option>
+            <option>Black</option>
+            <option>Blue</option>
+            <option>Red</option>
+            <option>White</option>
+        </select>
+
+        <p>2. Mera favourite cricketer?</p>
+        <select name="q2">
+            <option value="">Select</option>
+            <option>Virat Kohli</option>
+            <option>MS Dhoni</option>
+            <option>Rohit Sharma</option>
+            <option>AB de Villiers</option>
+        </select>
+
+        <p>3. Mera comfort food?</p>
+        <select name="q3">
+            <option value="">Select</option>
+            <option>Pizza</option>
+            <option>Biryani</option>
+            <option>Maggi</option>
+            <option>Rajma Chawal</option>
+        </select>
+
+        <p>4. Mera favourite weather?</p>
+        <select name="q4">
+            <option value="">Select</option>
+            <option>Rainy</option>
+            <option>Winter</option>
+            <option>Cool evening</option>
+            <option>Sunny beach weather</option>
+        </select>
+
+        <p>5. Mera dream travel place?</p>
+        <select name="q5">
+            <option value="">Select</option>
+            <option>Mountains</option>
+            <option>Beach</option>
+            <option>Foreign trip</option>
+            <option>Spiritual place</option>
+        </select>
+
+        <br><br>
+        <button type="button" class="submit-btn" onclick="checkQuiz()">Check Score</button>
+    </form>
+
+    <p id="quizResult" style="margin-top:15px; font-weight:bold;"></p>
+</div>
+
 
     <!-- FEEDBACK -->
     <div class="card">
@@ -300,9 +359,62 @@
     }
 
     function submitFeedback() {
-        alert("Thank you! Your feedback: " + slider.value + "%");
+    let value = slider.value;
+    alert("Thank you! Your feedback: " + value + "%");
+
+    if (value >= 50) {
+        const popup = document.getElementById("rosePopup");
+        popup.classList.add("show");
+
+        // auto close after 3 seconds
+        setTimeout(() => {
+            popup.classList.remove("show");
+        }, 3000);
+    }
+}
+
+
+    function checkQuiz() {
+        let score = 0;
+
+        /* ADD YOUR ANSWERS HERE */
+        const answers = {
+            q1: "Black",
+            q2: "Virat Kohli",
+            q3: "Pizza",
+            q4: "Rainy",
+            q5: "Spiritual Place"
+        };
+
+        const form = document.forms["quizForm"];
+
+        for (let key in answers) {
+            if (form[key].value === answers[key]) {
+                score++;
+            }
+        }
+
+        let message = "";
+
+        if (score === 5) {
+            message = "Perfect match! Tum mujhe bahut achhe se jaanti ho ❤️";
+        } else if (score >= 3) {
+            message = "Achha score! Tum mujhe kaafi samajh rahi ho 😊";
+        } else {
+            message = "Abhi aur jaanne ki zarurat hai 😄";
+        }
+
+        document.getElementById("quizResult").textContent =
+            "Score: " + score + "/5 — " + message;
     }
 </script>
+<!-- Rose popup -->
+<div id="rosePopup" class="rose-popup">
+    <div class="rose-content">
+        🌹 This is for you
+    </div>
+</div>
+
 
 </body>
 </html>

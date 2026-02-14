@@ -9,7 +9,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 
-    /* Dark romantic Pinterest background */
+    /* Dark romantic background */
     background: linear-gradient(rgba(0,0,0,0.75), rgba(20,0,10,0.85)),
                 url("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2");
 
@@ -114,7 +114,7 @@ body {
     color: #fff;
 }
 
-/* Instagram */
+/* Instagram icon */
 .insta-icon {
     width: 60px;
     margin-top: 10px;
@@ -123,6 +123,23 @@ body {
 
 .insta-icon:hover {
     transform: scale(1.1);
+}
+
+/* Quiz select boxes */
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 14px;
+}
+
+select option {
+    color: black;
 }
 
 /* Slider */
@@ -137,6 +154,7 @@ input[type="range"] {
     margin-top: 8px;
 }
 
+/* Buttons */
 .submit-btn {
     margin-top: 12px;
     padding: 10px 20px;
@@ -146,6 +164,7 @@ input[type="range"] {
     border-radius: 25px;
     cursor: pointer;
     font-weight: 600;
+    transition: 0.3s;
 }
 
 .submit-btn:hover {
@@ -187,6 +206,7 @@ body::after {
         opacity: 0;
     }
 }
+
 /* Rose popup */
 .rose-popup {
     position: fixed;
@@ -213,21 +233,17 @@ body::after {
     border-radius: 20px;
     backdrop-filter: blur(12px);
     color: #ff6b8a;
-    animation: rosePop 0.8s ease;
     text-align: center;
+    animation: rosePop 0.8s ease;
 }
 
 @keyframes rosePop {
     0% {
-        transform: scale(0.3) rotate(-15deg);
+        transform: scale(0.4);
         opacity: 0;
-    }
-    70% {
-        transform: scale(1.1) rotate(5deg);
     }
     100% {
         transform: scale(1);
         opacity: 1;
     }
 }
-

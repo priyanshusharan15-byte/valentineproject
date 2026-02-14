@@ -6,16 +6,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Natural romantic fonts -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="valentine.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(rgba(255,120,150,0.7), rgba(255,180,200,0.7));
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .hero img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ff5c8a;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            margin: 10px 0 5px;
+            color: #ff3e6c;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #666;
+        }
+
+        .location {
+            color: #ff3e6c;
+            font-weight: 600;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .card h2 {
+            color: #ff3e6c;
+            margin-bottom: 10px;
+        }
+
+        .soft {
+            background: #fff0f4;
+        }
+
+        /* Hobby grid */
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .hobby-item {
+            background: #ffe4ec;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        /* Shayari */
+        .shayari {
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        /* Instagram icon */
+        .insta-icon {
+            width: 55px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .insta-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Feedback slider */
+        .slider-container {
+            margin-top: 10px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+        }
+
+        .slider-value {
+            font-weight: bold;
+            color: #ff3e6c;
+            margin-top: 8px;
+        }
+
+        .submit-btn {
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: #ff3e6c;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .submit-btn:hover {
+            background: #e02f5b;
+        }
+    </style>
 </head>
+
 <body>
 
 <div class="page">
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <div class="hero">
         <img src="lokesh.jpg" alt="Lokesh">
         <h1>Lokesh Bairwa</h1>
@@ -23,7 +153,7 @@
         <p class="location">Chambal, Rajasthan</p>
     </div>
 
-    <!-- ABOUT + HOBBIES -->
+    <!-- ABOUT -->
     <div class="card">
         <h2>About Me</h2>
         <p>
@@ -48,7 +178,6 @@
             Kis mukaam par le aayi hai humein teri mohabbat,  
             Nazrein tere alawa kisi aur ko dekhein toh gunaah lagta hai.
         </p>
-
         <p class="shayari">
             Aaj phir bechain hone laga dil,  
             Na jaane use kisne gale lagaya hoga.
@@ -65,24 +194,51 @@
 
     <!-- DREAM PARTNER -->
     <div class="card">
-        <h2>My Dream Life Partner</h2>
-        <p>
-            I don’t look for perfection, I look for peace.
-            Someone loyal, understanding, and emotionally deep.
-            A partner who enjoys simple travels, quiet talks,
-            and believes in growing together.
-        </p>
-    </div>
+    <h2>Meri Dream Life Partner</h2>
+    <p>
+        Mujhe perfect ladki nahi chahiye, mujhe sirf sukoon chahiye.  
+        Aisi ladki jo dil se loyal ho, thodi samajhdaar ho, aur emotions ko samajhti ho.  
+        Jo chhoti-chhoti trips, shaant si baatein, aur simple si zindagi mein khush rehna jaanti ho.  
+        Jo mere saath haste-haste zindagi ke level cross kare,  
+        aur jab main bewakoofi karu, toh pyaar se daant bhi de.  
+        Bas ek aisi partner jo saath chale, saath hanse,  
+        aur dheere-dheere ek sundar sa future banaye.
+    </p>
+</div>
+
+
     <!-- INSTAGRAM -->
     <div class="card">
-    <h2>Connect with Me</h2>
-    <a href="https://www.instagram.com/lokesh_kumar_2004/" target="_blank">
-        <img src="instagram.jpg" alt="Instagram" class="insta-icon">
-    </a>
+        <h2>Connect with Me</h2>
+        <a href="https://www.instagram.com/lokesh_kumar_2004/" target="_blank">
+            <img src="instagram.jpg" alt="Instagram" class="insta-icon">
+        </a>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div class="card">
+        <h2>How much did you like my profile?</h2>
+        <div class="slider-container">
+            <input type="range" min="0" max="100" value="50" id="feedbackSlider">
+            <div class="slider-value" id="sliderValue">50%</div>
+            <button class="submit-btn" onclick="submitFeedback()">Submit</button>
+        </div>
     </div>
 
 </div>
 
-</body>
+<script>
+    const slider = document.getElementById("feedbackSlider");
+    const output = document.getElementById("sliderValue");
 
+    slider.oninput = function() {
+        output.textContent = this.value + "%";
+    }
+
+    function submitFeedback() {
+        alert("Thank you! Your feedback: " + slider.value + "%");
+    }
+</script>
+
+</body>
 </html>

@@ -309,9 +309,9 @@
         <select name="q3">
             <option value="">Select</option>
             <option>Pizza</option>
-            <option>Biryani</option>
+            <option>Sarso ka Saag</option>
             <option>Maggi</option>
-            <option>Rajma Chawal</option>
+            <option>Dal Bhaati Churma</option>
         </select>
 
         <p>4. Mera favourite weather?</p>
@@ -326,7 +326,7 @@
         <p>5. Mera dream travel place?</p>
         <select name="q5">
             <option value="">Select</option>
-            <option>Mountains</option>
+            <option>Nature</option>
             <option>Beach</option>
             <option>Foreign trip</option>
             <option>Spiritual place</option>
@@ -350,40 +350,51 @@
 
 </div>
 
+
+
+<!-- Rose popup -->
+<div id="rosePopup" class="rose-popup">
+    <div class="rose-content">
+        🌹 Madam Ji aapke liye
+    </div>
+</div>
+
 <script>
     const slider = document.getElementById("feedbackSlider");
     const output = document.getElementById("sliderValue");
 
+    // update slider percentage
     slider.oninput = function() {
         output.textContent = this.value + "%";
-    }
+    };
 
+    // feedback submit
     function submitFeedback() {
-    let value = slider.value;
-    alert("Thank you! Your feedback: " + value + "%");
+        let value = parseInt(slider.value);
 
-    if (value >= 50) {
-        const popup = document.getElementById("rosePopup");
-        popup.classList.add("show");
+        if (value >= 50) {
+            const popup = document.getElementById("rosePopup");
+            popup.classList.add("show");
 
-        // auto close after 3 seconds
-        setTimeout(() => {
-            popup.classList.remove("show");
-        }, 3000);
+            // auto close after 6 seconds
+            setTimeout(() => {
+                popup.classList.remove("show");
+            }, 6000);
+        }
+
+        alert("Thank you! Your feedback: " + value + "%");
     }
-}
 
-
+    // quiz logic
     function checkQuiz() {
         let score = 0;
 
-        /* ADD YOUR ANSWERS HERE */
         const answers = {
-            q1: "Black",
+            q1: "Red",
             q2: "Virat Kohli",
-            q3: "Pizza",
+            q3: "Dal Bhaati Churma",
             q4: "Rainy",
-            q5: "Spiritual Place"
+            q5: "Nature"
         };
 
         const form = document.forms["quizForm"];
@@ -408,14 +419,15 @@
             "Score: " + score + "/5 — " + message;
     }
 </script>
+
+
 <!-- Rose popup -->
 <div id="rosePopup" class="rose-popup">
     <div class="rose-content">
-        🌹 This is for you
+        🌹Madam Ji aapke liye
     </div>
 </div>
 
 
 </body>
 </html>
-

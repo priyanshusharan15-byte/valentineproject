@@ -8,30 +8,50 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="valentine.css">
 
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Nunito', sans-serif;
-            background: linear-gradient(rgba(255,120,150,0.7), rgba(255,180,200,0.7));
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            /* Dark romantic background */
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(20,0,10,0.85)),
+                        url("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
             display: flex;
             justify-content: center;
+            padding: 40px 15px;
         }
 
         .page {
             width: 100%;
-            max-width: 400px;
-            padding: 20px;
+            max-width: 420px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Hero */
+        /* HERO */
         .hero {
             text-align: center;
             padding: 25px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            margin-bottom: 20px;
+            border-radius: 25px;
+            margin-bottom: 25px;
+
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .hero img {
@@ -39,45 +59,59 @@
             height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #ff5c8a;
+            border: 4px solid #ff4d6d;
         }
 
         .hero h1 {
             font-family: 'DM Serif Display', serif;
-            margin: 10px 0 5px;
-            color: #ff3e6c;
+            margin-top: 15px;
+            color: #ff6b8a;
+            font-size: 32px;
         }
 
         .tagline {
             font-style: italic;
-            color: #666;
+            color: #ddd;
+            margin-top: 5px;
         }
 
         .location {
-            color: #ff3e6c;
+            color: #ff6b8a;
             font-weight: 600;
+            margin-top: 4px;
         }
 
         /* Cards */
         .card {
-            background: white;
-            padding: 20px;
-            border-radius: 18px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(14px);
+            padding: 22px;
+            border-radius: 20px;
             margin-bottom: 18px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             text-align: center;
         }
 
         .card h2 {
-            color: #ff3e6c;
+            font-family: 'DM Serif Display', serif;
+            color: #ff6b8a;
             margin-bottom: 10px;
         }
 
-        .soft {
-            background: #fff0f4;
+        .card p {
+            color: #eee;
+            line-height: 1.7;
+            font-size: 15px;
         }
 
-        /* Hobby grid */
+        /* Shayari */
+        .shayari {
+            font-style: italic;
+            margin-bottom: 12px;
+            color: #f5d0d8;
+        }
+
+        /* Hobbies */
         .hobby-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -86,21 +120,16 @@
         }
 
         .hobby-item {
-            background: #ffe4ec;
+            background: rgba(255,255,255,0.12);
             padding: 8px;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 14px;
+            color: #fff;
         }
 
-        /* Shayari */
-        .shayari {
-            font-style: italic;
-            margin-bottom: 12px;
-        }
-
-        /* Instagram icon */
+        /* Instagram */
         .insta-icon {
-            width: 55px;
+            width: 60px;
             margin-top: 10px;
             transition: 0.3s;
         }
@@ -109,25 +138,22 @@
             transform: scale(1.1);
         }
 
-        /* Feedback slider */
-        .slider-container {
+        /* Slider */
+        input[type="range"] {
+            width: 100%;
             margin-top: 10px;
         }
 
-        input[type="range"] {
-            width: 100%;
-        }
-
         .slider-value {
+            color: #ff6b8a;
             font-weight: bold;
-            color: #ff3e6c;
             margin-top: 8px;
         }
 
         .submit-btn {
             margin-top: 12px;
             padding: 10px 20px;
-            background: #ff3e6c;
+            background: #ff4d6d;
             color: white;
             border: none;
             border-radius: 25px;
@@ -136,7 +162,43 @@
         }
 
         .submit-btn:hover {
-            background: #e02f5b;
+            background: #ff2e55;
+        }
+
+        /* Floating hearts */
+        body::before,
+        body::after {
+            content: "💖";
+            position: fixed;
+            bottom: -50px;
+            font-size: 30px;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::before {
+            left: 20px;
+            animation: floatUp 8s linear infinite;
+        }
+
+        body::after {
+            right: 20px;
+            animation: floatUp 10s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -157,72 +219,74 @@
     <div class="card">
         <h2>About Me</h2>
         <p>
-            A calm and introverted person who believes in loyalty and deep emotional connections.
-            I enjoy playing cricket, writing poetry, and exploring new places.
-            Simple moments and meaningful conversations make life beautiful.
+             Main zyada bolne wala insaan nahi hoon, par jis se judta hoon, dil se judta hoon.  
+    Apni future wife ke liye main har chhoti-badi zimmedaari khushi se uthaunga.  
+    Uski respect, uski khushi, aur uski peace of mind mere liye sabse important hogi.  
+    Main uska sirf partner nahi, uska best friend, support system, aur safe place banna chahta hoon.  
+    Mushkil waqt ho ya khushi ka pal, main uske saath khada rahunga—  
+    bina shart, bina condition, bas sachche dil se.
         </p>
 
         <div class="hobby-grid">
             <div class="hobby-item">🏏 Cricket Lover</div>
             <div class="hobby-item">✍️ Poetry Writer</div>
             <div class="hobby-item">✈️ Travel Soul</div>
-            <div class="hobby-item">🤍 Introvert & Loyal</div>
+            <div class="hobby-item">🤍 Introvert</div>
+            <div class="hobby-item">🛡️ Loyal</div>
             <div class="hobby-item">♀️ Feminist</div>
         </div>
     </div>
-
     <!-- SHAYARI -->
-    <div class="card soft">
-        <h2>My few Shayari</h2>
-        <p class="shayari">
-            Kis mukaam par le aayi hai humein teri mohabbat,  
-            Nazrein tere alawa kisi aur ko dekhein toh gunaah lagta hai.
-        </p>
-        <p class="shayari">
-            Aaj phir bechain hone laga dil,  
-            Na jaane use kisne gale lagaya hoga.
-        </p>
-        <p class="shayari">
-            Tu khubsurat jaise dikhta gehra chambal ka paani,
-            mai tere paas jaise woh bihad ki barbad kahani.
-        </p>
-        <p class="shayari">
-            Toh chale fir saath me,  
-            Mai sidha ❤️ me utarta hu.
-        </p>
-    </div>
+<div class="card">
+    <h2>Dil se nikli kuch baatein</h2>
 
-    <!-- DREAM PARTNER -->
-    <div class="card">
-    <h2>Meri Dream Life Partner</h2>
-    <p>
-        Mujhe perfect ladki nahi chahiye, mujhe sirf sukoon chahiye.  
-        Aisi ladki jo dil se loyal ho, thodi samajhdaar ho, aur emotions ko samajhti ho.  
-        Jo chhoti-chhoti trips, shaant si baatein, aur simple si zindagi mein khush rehna jaanti ho.  
-        Jo mere saath haste-haste zindagi ke level cross kare,  
-        aur jab main bewakoofi karu, toh pyaar se daant bhi de.  
-        Bas ek aisi partner jo saath chale, saath hanse,  
-        aur dheere-dheere ek sundar sa future banaye.
+    <p class="shayari">
+        Kis mukaam par le aayi hai humein teri mohabbat,  
+        Nazrein tere alawa kisi aur ko dekhein toh gunaah lagta hai.
+    </p>
+
+    <p class="shayari">
+        Aaj phir bechain hone laga dil,  
+        Na jaane use kisne gale lagaya hoga.
+    </p>
+
+    <p class="shayari">
+        Tu khubsurat jaise dikhta gehra chambal ka paani,  
+        mai tere paas jaise woh bihad ki barbad kahani.
+    </p>
+
+    <p class="shayari">
+        Toh chale fir saath me,  
+        mai sidha dil ❤️ me utarta hu.
     </p>
 </div>
 
+
+    <!-- DREAM PARTNER -->
+    <div class="card">
+        <h2>Meri Dream Life Partner</h2>
+        <p>
+            Mujhe perfect ladki nahi chahiye, mujhe sirf sukoon chahiye.  
+            Aisi ladki jo dil se loyal ho, samajhdaar ho, aur emotions ko samajhti ho.  
+            Jo simple si zindagi, chhoti trips, aur shaant si baaton mein khush rehna jaanti ho.  
+            Bas ek aisi partner jo saath chale, saath hanse, aur dheere-dheere ek sundar future banaye.
+        </p>
+    </div>
 
     <!-- INSTAGRAM -->
     <div class="card">
         <h2>Connect with Me</h2>
         <a href="https://www.instagram.com/lokesh_kumar_2004/" target="_blank">
-            <img src="instagram.jpg" alt="Instagram" class="insta-icon">
+            <img src="instagram.jpg" class="insta-icon">
         </a>
     </div>
 
     <!-- FEEDBACK -->
     <div class="card">
-        <h2>How much did you like my profile?</h2>
-        <div class="slider-container">
-            <input type="range" min="0" max="100" value="50" id="feedbackSlider">
-            <div class="slider-value" id="sliderValue">50%</div>
-            <button class="submit-btn" onclick="submitFeedback()">Submit</button>
-        </div>
+        <h2>Sach batao, smile aayi ya nahi?</h2>
+        <input type="range" min="0" max="100" value="50" id="feedbackSlider">
+        <div class="slider-value" id="sliderValue">50%</div>
+        <button class="submit-btn" onclick="submitFeedback()">Submit</button>
     </div>
 
 </div>

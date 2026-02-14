@@ -187,3 +187,47 @@ body::after {
         opacity: 0;
     }
 }
+/* Rose popup */
+.rose-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    z-index: 1000;
+}
+
+.rose-popup.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.rose-content {
+    font-size: 40px;
+    background: rgba(255,255,255,0.1);
+    padding: 25px 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    color: #ff6b8a;
+    animation: rosePop 0.8s ease;
+    text-align: center;
+}
+
+@keyframes rosePop {
+    0% {
+        transform: scale(0.3) rotate(-15deg);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
